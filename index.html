@@ -366,6 +366,26 @@ section { position: relative; padding-block: clamp(88px, 10vw, 148px); }
 .gallery figcaption strong { font-size: 1rem; }
 .gallery figcaption span { font: 400 .75rem/1.3 var(--font-mono); color: var(--muted); letter-spacing: .04em; text-transform: uppercase; }
 
+/* Über uns */
+.ph { background: color-mix(in srgb, var(--copper) 12%, transparent); border-bottom: 1.5px dashed var(--copper); border-radius: 4px; padding: 0 .2em; color: inherit; }
+.about { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 16px; margin-top: 56px; align-items: stretch; }
+.stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.stat { background: var(--card); border-radius: 22px; box-shadow: var(--shadow); padding: 22px 24px; display: grid; gap: 6px; align-content: start; }
+.stat strong { font: 700 clamp(1.75rem, 1.4rem + 1.2vw, 2.5rem)/1 var(--font-display); letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
+.stat > span { color: var(--muted); font-size: .9375rem; }
+.quote { background: var(--dark-bg); color: var(--dark-ink); border-radius: var(--radius); padding: clamp(28px, 4vw, 44px); display: grid; gap: 20px; align-content: space-between; position: relative; overflow: hidden; }
+.quote::before { content: "“"; position: absolute; right: 24px; top: -28px; font: 800 11rem/1 var(--font-display); color: var(--copper); opacity: .35; }
+.quote p { font: 600 clamp(1.25rem, 1.05rem + .8vw, 1.75rem)/1.3 var(--font-display); letter-spacing: -.015em; position: relative; }
+.quote footer { border: 0; padding: 0; color: var(--dark-muted); font-size: .9375rem; }
+.team { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-top: 16px; }
+.member { background: var(--card); border-radius: 22px; box-shadow: var(--shadow); padding: 24px 20px; display: grid; justify-items: center; text-align: center; gap: 4px; transition: transform .4s var(--ease); }
+.member:hover { transform: translateY(-3px); }
+.avatar { width: 96px; height: 96px; border-radius: 50%; padding: 5px; margin-bottom: 12px; background: conic-gradient(from 210deg, var(--copper-light), var(--copper), var(--copper-dark), var(--copper-light)); }
+.avatar span { display: grid; place-items: end center; width: 100%; height: 100%; border-radius: 50%; overflow: hidden; background: var(--band); color: var(--muted); }
+.member h3 { font-size: 1.0625rem; }
+.member p { color: var(--muted); font-size: .875rem; }
+@media (max-width: 900px) { .about { grid-template-columns: minmax(0, 1fr); } .team { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
 /* Jobs */
 .jobs { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 16px; margin-top: 56px; align-items: start; }
 .trades { display: grid; gap: 12px; }
@@ -380,7 +400,7 @@ section { position: relative; padding-block: clamp(88px, 10vw, 148px); }
 .trade h3 { font-size: 1.125rem; letter-spacing: -.01em; }
 .trade p { color: var(--muted); font-size: .9375rem; }
 .trade .dur { font: 500 .75rem/1.3 var(--font-mono); color: var(--muted); letter-spacing: .04em; text-transform: uppercase; text-align: right; white-space: nowrap; }
-.why { background: var(--band); border-radius: var(--radius); padding: clamp(24px, 3vw, 36px); display: grid; gap: 18px; }
+.why { background: var(--card); box-shadow: var(--shadow); border-radius: var(--radius); padding: clamp(24px, 3vw, 36px); display: grid; gap: 18px; }
 .why h3 { font-size: 1.375rem; letter-spacing: -.015em; }
 .why ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
 .why li { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 10px; }
@@ -449,6 +469,7 @@ footer a { color: var(--muted); }
       <li><a href="#heizung">Heizung</a></li>
       <li><a href="#spenglerei">Spenglerei</a></li>
       <li><a href="#referenzen">Referenzen</a></li>
+      <li><a href="#ueber-uns">Über uns</a></li>
       <li><a href="#jobs">Jobs</a></li>
       <li><a href="#kontakt">Kontakt</a></li>
     </ul>
@@ -701,10 +722,41 @@ footer a { color: var(--muted); }
     </div>
   </section>
 
-  <!-- Arbeiten bei uns -->
-  <section id="jobs" aria-labelledby="jobs-title">
+  <!-- Über uns -->
+  <section id="ueber-uns" aria-labelledby="about-title">
     <div class="wrap">
-      <span class="node" data-side="left" style="top: 132px"><span class="node-label">NACHWUCHS</span></span>
+      <span class="node" data-side="left" style="top: 132px"><span class="node-label">TEAM</span></span>
+      <div class="chapter-head reveal">
+        <span class="eyebrow">Über uns</span>
+        <h2 class="h2" id="about-title">Aus Diessbach.<br>Für die Region.</h2>
+        <p class="lead">Hinter der Kurt Burri AG stehen Fachleute für Sanitär, Heizung und Spenglerei. Wir arbeiten dort, wo wir zu Hause sind: in Diessbach bei Büren und im Seeland.</p>
+      </div>
+      <div class="about">
+        <div class="stats">
+          <div class="stat reveal"><strong>Seit <span class="ph">[Jahr]</span></strong><span>in Diessbach bei Büren</span></div>
+          <div class="stat reveal"><strong>3</strong><span>Gewerke unter einem Dach</span></div>
+          <div class="stat reveal"><strong><span class="ph">[Anzahl]</span></strong><span>Mitarbeitende</span></div>
+          <div class="stat reveal"><strong><span class="ph">[Anzahl]</span></strong><span>Lernende</span></div>
+        </div>
+        <blockquote class="quote reveal" style="margin: 0">
+          <p><span class="ph">[Ein Satz des Inhabers: wofür der Betrieb steht und was Kundinnen und Kunden bei uns erwarten dürfen.]</span></p>
+          <footer><span class="ph">[Name]</span>, Geschäftsführung</footer>
+        </blockquote>
+      </div>
+      <div class="team">
+          <article class="member reveal"><span class="avatar"><span><svg width="70" height="70" viewBox="0 0 64 64" fill="currentColor" aria-hidden="true"><circle cx="32" cy="24" r="12"/><path d="M8 64c0-14 11-22 24-22s24 8 24 22z"/></svg></span></span><h3><span class="ph">[Name]</span></h3><p>Geschäftsführung</p></article>
+          <article class="member reveal"><span class="avatar"><span><svg width="70" height="70" viewBox="0 0 64 64" fill="currentColor" aria-hidden="true"><circle cx="32" cy="24" r="12"/><path d="M8 64c0-14 11-22 24-22s24 8 24 22z"/></svg></span></span><h3><span class="ph">[Name]</span></h3><p>Sanitär</p></article>
+          <article class="member reveal"><span class="avatar"><span><svg width="70" height="70" viewBox="0 0 64 64" fill="currentColor" aria-hidden="true"><circle cx="32" cy="24" r="12"/><path d="M8 64c0-14 11-22 24-22s24 8 24 22z"/></svg></span></span><h3><span class="ph">[Name]</span></h3><p>Heizung</p></article>
+          <article class="member reveal"><span class="avatar"><span><svg width="70" height="70" viewBox="0 0 64 64" fill="currentColor" aria-hidden="true"><circle cx="32" cy="24" r="12"/><path d="M8 64c0-14 11-22 24-22s24 8 24 22z"/></svg></span></span><h3><span class="ph">[Name]</span></h3><p>Spenglerei</p></article>
+      </div>
+      <p class="draft-note reveal" style="margin-top: 16px"><b>Entwurf</b> Markierte Stellen, Teamfotos und das Zitat liefert die Kurt Burri AG. Ohne Fotos funktioniert die Rubrik auch mit einem einzigen Gruppenbild.</p>
+    </div>
+  </section>
+
+  <!-- Arbeiten bei uns -->
+  <section id="jobs" class="band" aria-labelledby="jobs-title">
+    <div class="wrap">
+      <span class="node" data-side="right" style="top: 132px"><span class="node-label">NACHWUCHS</span></span>
       <div class="chapter-head reveal">
         <span class="eyebrow">Arbeiten bei uns</span>
         <h2 class="h2" id="jobs-title">Ihr Handwerk.<br>Unser Team.</h2>
@@ -746,9 +798,9 @@ footer a { color: var(--muted); }
   </section>
 
   <!-- Kontakt -->
-  <section id="kontakt" class="band" aria-labelledby="contact-title">
+  <section id="kontakt" aria-labelledby="contact-title">
     <div class="wrap">
-      <span class="node is-outlet" data-side="right" style="top: 132px"><span class="drop"></span></span>
+      <span class="node is-outlet" data-side="left" style="top: 132px"><span class="drop"></span></span>
       <div class="chapter-head reveal">
         <span class="eyebrow">Kontakt</span>
         <h2 class="h2" id="contact-title">Wir sind für Sie da.</h2>
