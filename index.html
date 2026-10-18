@@ -366,9 +366,36 @@ section { position: relative; padding-block: clamp(88px, 10vw, 148px); }
 .gallery figcaption strong { font-size: 1rem; }
 .gallery figcaption span { font: 400 .75rem/1.3 var(--font-mono); color: var(--muted); letter-spacing: .04em; text-transform: uppercase; }
 
+/* Jobs */
+.jobs { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 16px; margin-top: 56px; align-items: start; }
+.trades { display: grid; gap: 12px; }
+.trade {
+  background: var(--card); border-radius: 22px; box-shadow: var(--shadow); padding: 22px 24px;
+  display: grid; grid-template-columns: 48px minmax(0, 1fr) auto; gap: 16px; align-items: center;
+}
+.trade .ico { width: 48px; height: 48px; border-radius: 14px; display: grid; place-items: center; }
+.trade.t-water .ico { background: color-mix(in srgb, var(--water) 14%, transparent); color: var(--water); }
+.trade.t-heat .ico { background: color-mix(in srgb, var(--signal) 13%, transparent); color: var(--signal); }
+.trade.t-metal .ico { background: color-mix(in srgb, var(--copper) 16%, transparent); color: var(--copper); }
+.trade h3 { font-size: 1.125rem; letter-spacing: -.01em; }
+.trade p { color: var(--muted); font-size: .9375rem; }
+.trade .dur { font: 500 .75rem/1.3 var(--font-mono); color: var(--muted); letter-spacing: .04em; text-transform: uppercase; text-align: right; white-space: nowrap; }
+.why { background: var(--band); border-radius: var(--radius); padding: clamp(24px, 3vw, 36px); display: grid; gap: 18px; }
+.why h3 { font-size: 1.375rem; letter-spacing: -.015em; }
+.why ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+.why li { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 10px; }
+.why li svg { color: var(--water); margin-top: 3px; }
+.why li strong { display: block; }
+.why li span { color: var(--muted); font-size: .9375rem; }
+.why .cta-row { justify-content: flex-start; margin-top: 4px; }
+.draft-note { grid-column: 1 / -1; border: 1.5px dashed var(--line); border-radius: 18px; padding: 16px 20px; color: var(--muted); font-size: .875rem; display: flex; gap: 10px; align-items: center; }
+.draft-note b { font: 500 .6875rem/1 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--copper); white-space: nowrap; }
+@media (max-width: 900px) { .jobs { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 560px) { .trade { grid-template-columns: 40px minmax(0, 1fr); } .trade .ico { width: 40px; height: 40px; } .trade .dur { grid-column: 2; text-align: left; } .draft-note { flex-direction: column; align-items: flex-start; } }
+
 /* Contact */
 .contact { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 16px; margin-top: 56px; }
-.contact-card { background: var(--band); border-radius: var(--radius); padding: clamp(24px, 3vw, 40px); display: grid; gap: 22px; align-content: start; }
+.contact-card { background: var(--card); box-shadow: var(--shadow); border-radius: var(--radius); padding: clamp(24px, 3vw, 40px); display: grid; gap: 22px; align-content: start; }
 .contact-card address { font-style: normal; font-size: 1.125rem; line-height: 1.5; }
 .phone-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 .phone { font: 700 clamp(1.5rem, 1.2rem + 1vw, 2rem)/1.1 var(--font-display); letter-spacing: -.02em; color: var(--ink); user-select: all; }
@@ -422,6 +449,7 @@ footer a { color: var(--muted); }
       <li><a href="#heizung">Heizung</a></li>
       <li><a href="#spenglerei">Spenglerei</a></li>
       <li><a href="#referenzen">Referenzen</a></li>
+      <li><a href="#jobs">Jobs</a></li>
       <li><a href="#kontakt">Kontakt</a></li>
     </ul>
     <a class="btn btn-primary" href="https://www.local.ch/d/NFsm9GwMFxnfYJl95Q4MtQ#open-booking" target="_blank" rel="noopener">Termin vereinbaren</a>
@@ -673,10 +701,54 @@ footer a { color: var(--muted); }
     </div>
   </section>
 
-  <!-- Kontakt -->
-  <section id="kontakt" aria-labelledby="contact-title">
+  <!-- Arbeiten bei uns -->
+  <section id="jobs" aria-labelledby="jobs-title">
     <div class="wrap">
-      <span class="node is-outlet" data-side="left" style="top: 132px"><span class="drop"></span></span>
+      <span class="node" data-side="left" style="top: 132px"><span class="node-label">NACHWUCHS</span></span>
+      <div class="chapter-head reveal">
+        <span class="eyebrow">Arbeiten bei uns</span>
+        <h2 class="h2" id="jobs-title">Ihr Handwerk.<br>Unser Team.</h2>
+        <p class="lead">Sie arbeiten gerne mit den Händen und wollen am Ende des Tages sehen, was Sie geschafft haben? Ob Lehre, Festanstellung oder zuerst eine Schnupperlehre: Melden Sie sich bei uns.</p>
+      </div>
+      <div class="jobs">
+        <div class="trades">
+          <article class="trade t-water reveal">
+            <span class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg></span>
+            <div><h3>Sanitärinstallateur/in EFZ</h3><p>Leitungen, Bäder und Apparate. Vom Rohbau bis zur fertigen Armatur.</p></div>
+            <span class="dur">Lehre · 4 Jahre</span>
+          </article>
+          <article class="trade t-heat reveal">
+            <span class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c2 3 5 5 5 9a5 5 0 0 1-10 0c0-2 1-3.5 2-4.5 0 2 1 3 2 3 0-3-1-5 1-7.5z"/></svg></span>
+            <div><h3>Heizungsinstallateur/in EFZ</h3><p>Heizkessel, Fussbodenheizung und Regeltechnik einbauen und warten.</p></div>
+            <span class="dur">Lehre · 4 Jahre</span>
+          </article>
+          <article class="trade t-metal reveal">
+            <span class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/></svg></span>
+            <div><h3>Spengler/in EFZ</h3><p>Blech formen und montieren, auf dem Dach und an der Fassade.</p></div>
+            <span class="dur">Lehre · 4 Jahre</span>
+          </article>
+        </div>
+        <div class="why reveal">
+          <h3>Was Sie bei uns erwartet</h3>
+          <ul>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><div><strong>Drei Gewerke unter einem Dach</strong><span>Sie sehen, wie Sanitär, Heizung und Spenglerei zusammenspielen.</span></div></li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><div><strong>Abwechslung</strong><span>Neubau, Umbau, Renovation und Service. Kein Tag wie der andere.</span></div></li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><div><strong>Arbeiten in der Region</strong><span>Unsere Baustellen liegen im Seeland, nahe bei Diessbach bei Büren.</span></div></li>
+          </ul>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#kontakt" data-topic="Bewerbung">Schnupperlehre anfragen</a>
+            <a class="btn btn-ghost" href="#kontakt" data-topic="Bewerbung">Spontan bewerben</a>
+          </div>
+        </div>
+        <p class="draft-note reveal"><b>Entwurf</b> Hier erscheinen offene Stellen, Lehrstellen und ein Teamfoto. Die Inhalte liefert die Kurt Burri AG.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kontakt -->
+  <section id="kontakt" class="band" aria-labelledby="contact-title">
+    <div class="wrap">
+      <span class="node is-outlet" data-side="right" style="top: 132px"><span class="drop"></span></span>
       <div class="chapter-head reveal">
         <span class="eyebrow">Kontakt</span>
         <h2 class="h2" id="contact-title">Wir sind für Sie da.</h2>
@@ -703,6 +775,7 @@ footer a { color: var(--muted); }
               <input type="radio" name="topic" id="t-heat" value="Heizung"><label for="t-heat">Heizung</label>
               <input type="radio" name="topic" id="t-boiler" value="Boiler"><label for="t-boiler">Boiler</label>
               <input type="radio" name="topic" id="t-metal" value="Spenglerei"><label for="t-metal">Spenglerei</label>
+              <input type="radio" name="topic" id="t-job" value="Bewerbung"><label for="t-job">Bewerbung</label>
             </div>
           </div>
           <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required></div>
